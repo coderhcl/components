@@ -29,4 +29,7 @@ let props = defineProps<{
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
 }
+.el-menu {
+  height: 100vh;
+}
 </style>

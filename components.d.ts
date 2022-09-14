@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    '二级菜单': typeof import('./src/components/menu/src/二级菜单.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBadge: typeof import('element-plus/es')['ElBadge']
@@ -31,6 +32,9 @@ declare module '@vue/runtime-core' {
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTag: typeof import('element-plus/es')['ElTag']
+    Index111: typeof import('./src/components/menu/src/index111.vue')['default']
+    Menu: typeof import('./src/components/menu/src/menu.vue')['default']
+    MenuItem: typeof import('./src/components/menu/src/menuItem.vue')['default']
     NavHeader: typeof import('./src/components/container/src/navHeader/index.vue')['default']
     NavSide: typeof import('./src/components/container/src/navSide/index.vue')['default']
     Ndex: typeof import('./src/components/menu/src/ndex.vue')['default']

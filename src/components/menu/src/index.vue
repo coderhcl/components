@@ -1,41 +1,34 @@
 <template>
-  <el-menu :default-active="defaultActive" :router="router" v-bind="$attrs">
-    <template v-for="(item, index) in data" :key="index">
-      <el-menu-item
-        v-if="!item.children || !item.children.length"
-        :index="item.index"
-      >
-        <component v-if="item.icon" :is="item.icon"></component>
-        <span>{{ item.name }}</span>
-      </el-menu-item>
+  <el-menu :default-active="defaultActive" :router="router">
+    <template v-for="item in data" :key="item.index">
+      <!-- 分级菜单 - 此一级菜单不应具有跳转功能 -->
       <el-sub-menu
-        :index="item.index"
         v-if="item.children && item.children.length"
+        :index="item.index"
       >
         <template #title>
           <component v-if="item.icon" :is="item.icon"></component>
           <span>{{ item.name }}</span>
         </template>
-        <el-menu-item
-          v-for="(item1, index1) in item.children"
-          :index="item1.index"
-          :key="index1"
-        >
-          <component v-if="item1.icon" :is="item1.icon"></component>
-          <span>{{ item1.name }}</span>
-        </el-menu-item>
+        <!-- 下级菜单 -->
+        <MenuItem :list="item.children"></MenuItem>
       </el-sub-menu>
+      <!-- 一级菜单 -->
+      <el-menu-item v-else :index="item.index">
+        <component v-if="item.icon" :is="item.icon"></component>
+        {{ item.name }}
+      </el-menu-item>
     </template>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
 import { PropType } from 'vue'
-import { MenuItem } from './types'
+import { MenuItemType } from './types'
 let props = defineProps({
   // 导航菜单的数据
   data: {
-    type: Array as PropType<MenuItem[]>,
+    type: Array as PropType<MenuItemType[]>,
     require: true,
   },
   // 默认选中的菜单
@@ -49,11 +42,13 @@ let props = defineProps({
     default: false,
   },
 })
-console.log('props.data', props.data)
 </script>
 
-<style lang="scss" scope>
+<style scoped>
+.el-menu {
+  height: 100vh;
+}
 svg {
-  margin-right: 4px;
+  margin-right: 6px;
 }
 </style>
