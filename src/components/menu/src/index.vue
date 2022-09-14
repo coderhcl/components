@@ -1,5 +1,10 @@
 <template>
-  <el-menu :default-active="defaultActive" :router="router">
+  <el-menu
+    :default-active="defaultActive"
+    :router="router"
+    v-bind="$attrs"
+    class="el-menu-vertical-demo"
+  >
     <template v-for="item in data" :key="item.index">
       <!-- 分级菜单 - 此一级菜单不应具有跳转功能 -->
       <el-sub-menu
@@ -7,7 +12,9 @@
         :index="item.index"
       >
         <template #title>
-          <component v-if="item.icon" :is="item.icon"></component>
+          <el-icon>
+            <component v-if="item.icon" :is="item.icon"></component>
+          </el-icon>
           <span>{{ item.name }}</span>
         </template>
         <!-- 下级菜单 -->
@@ -15,8 +22,10 @@
       </el-sub-menu>
       <!-- 一级菜单 -->
       <el-menu-item v-else :index="item.index">
-        <component v-if="item.icon" :is="item.icon"></component>
-        {{ item.name }}
+        <el-icon>
+          <component v-if="item.icon" :is="item.icon"></component>
+        </el-icon>
+        <template #title> {{ item.name }}</template>
       </el-menu-item>
     </template>
   </el-menu>
@@ -45,10 +54,8 @@ let props = defineProps({
 </script>
 
 <style scoped>
-.el-menu {
-  height: 100vh;
-}
-svg {
-  margin-right: 6px;
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
 }
 </style>

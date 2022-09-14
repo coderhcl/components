@@ -6,7 +6,9 @@
       :index="item.index"
     >
       <template #title>
-        <component v-if="item.icon" :is="item.icon"></component>
+        <el-icon>
+          <component v-if="item.icon" :is="item.icon"></component>
+        </el-icon>
         <span>{{ item.name }}</span>
       </template>
 
@@ -14,8 +16,10 @@
       <MenuItem :list="item.children"></MenuItem>
     </el-sub-menu>
     <el-menu-item :index="item.index" v-else>
-      <component v-if="item.icon" :is="item.icon"></component>
-      {{ item.name }}
+      <el-icon>
+        <component v-if="item.icon" :is="item.icon"></component>
+      </el-icon>
+      <template #title> {{ item.name }}</template>
     </el-menu-item>
   </template>
 </template>
@@ -33,9 +37,6 @@ const props = defineProps<Props>()
 </script>
 
 <style scoped lang="scss">
-.el-sub-menu {
-  height: 50px !important;
-}
 svg {
   margin-right: 6px;
 }
