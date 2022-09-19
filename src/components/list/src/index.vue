@@ -72,7 +72,7 @@ let clickAction = (item: ActionOptions, index: number) => {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .container {
   display: flex;
   align-items: center;

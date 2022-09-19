@@ -78,7 +78,7 @@ let textColor = computed(() => {
 })
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .trend {
   display: flex;
   align-items: center;

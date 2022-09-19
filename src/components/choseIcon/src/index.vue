@@ -83,8 +83,4 @@ watch(
 .icon {
   flex: 1;
 }
-svg {
-  width: 2rem;
-  height: 2rem;
-}
 </style>

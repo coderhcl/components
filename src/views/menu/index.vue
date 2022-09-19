@@ -77,7 +77,7 @@ let data2 = [
 ]
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .menu-container {
   width: 200px;
   height: 100%;

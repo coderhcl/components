@@ -52,7 +52,7 @@ let props = defineProps({
 console.log('props.data', props.data)
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 svg {
   margin-right: 4px;
 }

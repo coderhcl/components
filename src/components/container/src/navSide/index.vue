@@ -1,5 +1,17 @@
 <template>
-  <m-menu :data="data" defaultActive="/" router :collapse="collapse" />
+  <div class="sideContainer" id="sideContainer">
+    <div class="title">
+      <img src="../../../../assets/vue.svg" alt="" />
+      <span v-if="!collapse">自定义组件封装</span>
+    </div>
+    <m-menu
+      :data="data"
+      :defaultActive="$route.path"
+      router
+      :collapse="collapse"
+      background-color="#f9f9f9"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -14,66 +26,109 @@ let data = [
     index: '/',
   },
   {
-    icon: 'Check',
-    name: '图标选择器',
-    index: '/chooseIcon',
+    icon: 'Eleme',
+    name: 'element二次封装',
+    index: '/element',
+    children: [
+      {
+        icon: 'Check',
+        name: '图标选择器',
+        index: '/element/chooseIcon',
+      },
+      {
+        icon: 'Location',
+        name: '省市区选择',
+        index: '/element/chooseArea',
+      },
+      {
+        icon: 'Sort',
+        name: '趋势标记',
+        index: '/element/trend',
+      },
+      {
+        icon: 'Timer',
+        name: '时间选择',
+        index: '/element/chooseTime',
+      },
+      {
+        icon: 'Bell',
+        name: '通知菜单',
+        index: '/element/notification',
+      },
+      {
+        icon: 'Menu',
+        name: '导航菜单',
+        index: '/element/menu',
+      },
+      {
+        icon: 'TurnOff',
+        name: '城市选择',
+        index: '/element/chooseCity',
+      },
+      {
+        icon: 'DArrowRight',
+        name: '进度条',
+        index: '/element/progress',
+      },
+      {
+        icon: 'ScaleToOriginal',
+        name: '日历',
+        index: '/element/calendar',
+      },
+      {
+        icon: 'ShoppingBag',
+        name: '表格',
+        index: '/element/table',
+      },
+    ],
   },
   {
-    icon: 'Location',
-    name: '省市区选择',
-    index: '/chooseArea',
+    icon: 'Key',
+    name: '登录',
+    index: '/login',
   },
   {
-    icon: 'Sort',
-    name: '趋势标记',
-    index: '/trend',
+    icon: 'CircleCheck',
+    name: '字符串验证',
+    index: '/validCode',
   },
   {
-    icon: 'Timer',
-    name: '时间选择',
-    index: '/chooseTime',
+    icon: 'fullScreen',
+    name: '网页全屏',
+    index: '/fullScreen',
   },
   {
-    icon: 'Bell',
-    name: '通知菜单',
-    index: '/notification',
+    icon: 'Guide',
+    name: '首次加载导航提示',
+    index: '/guide',
   },
   {
-    icon: 'Menu',
-    name: '导航菜单',
-    index: '/menu',
+    icon: 'moon',
+    name: '暗黑模式',
+    index: '/dark',
   },
   {
-    icon: 'TurnOff',
-    name: '城市选择',
-    index: '/chooseCity',
-  },
-  {
-    icon: 'DArrowRight',
-    name: '进度条',
-    index: '/progress',
-  },
-  {
-    icon: 'ScaleToOriginal',
-    name: '日历',
-    index: '/calendar',
-  },
-  {
-    icon: 'Setting',
-    name: '表单',
-    index: '/form',
-  },
-  {
-    icon: 'Setting',
-    name: '弹出框表单',
-    index: '/modalForm',
-  },
-  {
-    icon: 'ShoppingBag',
-    name: '表格',
-    index: '/table',
+    icon: 'edit',
+    name: '富文本编辑器',
+    index: '/editor',
   },
 ]
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.sideContainer {
+  height: 100vh;
+  background-color: #f9f9f9;
+  border-right: 1px solid #eee;
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    font-size: 14px;
+    span {
+      margin-left: 10px;
+    }
+  }
+}
+</style>

@@ -20,7 +20,7 @@
 
 <script lang="ts" setup></script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .flex {
   display: flex;
   div {
